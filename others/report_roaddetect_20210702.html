@@ -1,0 +1,804 @@
+<!doctype html>
+<html style='font-size:14px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+
+</style><title>道路平整度檢測報告2021-07-02</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='道路平整度檢測報告'><span>道路平整度檢測報告</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n95"><a class="md-toc-inner" href="#道路平整度檢測報告">道路平整度檢測報告</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1530"><a class="md-toc-inner" href="#檢測日期">檢測日期</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n7"><a class="md-toc-inner" href="#檢測範圍">檢測範圍</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n18"><a class="md-toc-inner" href="#檢測工具及標準">檢測工具及標準</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n87"><a class="md-toc-inner" href="#檢測結果">檢測結果</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n88"><a class="md-toc-inner" href="#1-金寧鄉盤果路桃園路至伯玉路路段）">1. 金寧鄉盤果路（桃園路至伯玉路路段）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n91"><a class="md-toc-inner" href="#2-金沙鎮陽沙路沙青路至光華路二段路段）">2. 金沙鎮陽沙路（沙青路至光華路二段路段）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n92"><a class="md-toc-inner" href="#3-光前路">3. 光前路</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n94"><a class="md-toc-inner" href="#4-慈湖路一至三段">4. 慈湖路一至三段</a></span></p></div><h2 id='檢測日期'><span>檢測日期</span></h2><p><span>110年7月2日</span></p><h2 id='檢測範圍'><span>檢測範圍</span></h2><p><span>本次檢測範圍中，如遇減速墊、減速標線等路段，均包含於本次檢測結果內，因檢測目的在反應用路人的實際體驗，所以並未扣除。本次檢測路段如下：</span></p><ol start='' ><li><span>金寧鄉盤果路（桃園路至伯玉路路段）</span></li><li><span>金沙鎮陽沙路（沙青路至光華路二段路段）</span></li><li><span>光前路</span></li><li><span>慈湖路一至三段</span></li></ol><h2 id='檢測工具及標準'><span>檢測工具及標準</span></h2><p><span>檢測工具為簡易型道路平整度檢測儀，使用車輛為 AKH-1787。檢測指標為 AARI，指標數值解釋對應 IRI 基準，參考表如下：</span></p><figure><table><thead><tr><th><span>道路等級</span></th><th><span>AARI</span></th></tr></thead><tbody><tr><td><span>機場跑道、高速公路</span></td><td><span>0.25~1.75</span></td></tr><tr><td><span>新路面</span></td><td><span>1.25~3.5</span></td></tr><tr><td><span>老舊路面</span></td><td><span>2.25~5.75</span></td></tr><tr><td><span>時常護的路面</span></td><td><span>3.25~10</span></td></tr><tr><td><span>已有損壞的路面</span></td><td><span>4.00~11.00</span></td></tr><tr><td><span>不完整的無鋪面路面</span></td><td><span>7.75</span></td></tr></tbody></table></figure><p><span>另內政部營建署「市區道路鋪面平整度管理精進作為之研究」建議再區分為新建及重鋪之標準，重鋪標準如下表（尚未通過修訂）：</span></p><figure><table><thead><tr><th><span>重鋪前AARI</span></th><th><span>道路等級</span></th><th><span>合格區</span></th><th><span>改正區</span></th><th><span>重做區</span></th></tr></thead><tbody><tr><td><span>&lt;4</span></td><td><span>主次要道路</span></td><td><span>≦3.5</span></td><td><span>3.5&lt; x ≦ 3.8</span></td><td><span>&gt; 3.8</span></td></tr><tr><td><span>&lt;4</span></td><td><span>8m以上巷道</span></td><td><span>≦4.0</span></td><td><span>4.0&lt; x ≦ 4.3</span></td><td><span>&gt; 4.3</span></td></tr><tr><td><span>4~6.5</span></td><td><span>主次要道路</span></td><td><span>≦4.2</span></td><td><span>4.2&lt; x ≦ 4.5</span></td><td><span>&gt; 4.5</span></td></tr><tr><td><span>4~6.5</span></td><td><span>8m以上巷道</span></td><td><span>≦4.7</span></td><td><span>4.7&lt; x ≦ 5.0</span></td><td><span>&gt; 5.0</span></td></tr><tr><td><span>&gt;6.5</span></td><td><span>主次要道路</span></td><td><span>≦5.0</span></td><td><span>5.0&lt; x ≦ 5.3</span></td><td><span>&gt; 5.3</span></td></tr><tr><td><span>&gt;6.5</span></td><td><span>8m以上巷道</span></td><td><span>≦5.5</span></td><td><span>5.5&lt; x ≦ 5.8</span></td><td><span>&gt; 5.8</span></td></tr></tbody></table></figure><h2 id='檢測結果'><span>檢測結果</span></h2><h3 id='1-金寧鄉盤果路桃園路至伯玉路路段）'><span>1. 金寧鄉盤果路（桃園路至伯玉路路段）</span></h3><p><span>平均值3.36，標準差0.55。</span></p><p><img src="img/20210702-01.jpg" referrerpolicy="no-referrer" alt="盤果路道路平整度"></p><figure><table><thead><tr><th><span>路名</span></th><th><span>AARI</span></th><th><span>區塊</span></th></tr></thead><tbody><tr><td><span>盤果路</span></td><td><span>3.62</span></td><td><span>東側01</span></td></tr><tr><td><span>盤果路</span></td><td><span>2.45</span></td><td><span>東側02</span></td></tr><tr><td><span>盤果路</span></td><td><span>2.31</span></td><td><span>東側03</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.32</span></td><td><span>東側04</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.46</span></td><td><span>東側05</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.41</span></td><td><span>東側06</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.65</span></td><td><span>東側07</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.24</span></td><td><span>東側08</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.15</span></td><td><span>東側09</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.49</span></td><td><span>東側10</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.35</span></td><td><span>東側11</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.62</span></td><td><span>東側12</span></td></tr><tr><td><span>盤果路</span></td><td><span>2.9</span></td><td><span>西側01</span></td></tr><tr><td><span>盤果路</span></td><td><span>2.53</span></td><td><span>西側02</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.05</span></td><td><span>西側03</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.86</span></td><td><span>西側04</span></td></tr><tr><td><span>盤果路</span></td><td><span>4.18</span></td><td><span>西側05</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.47</span></td><td><span>西側06</span></td></tr><tr><td><span>盤果路</span></td><td><span>4.23</span></td><td><span>西側07</span></td></tr><tr><td><span>盤果路</span></td><td><span>4.41</span></td><td><span>西側08</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.78</span></td><td><span>西側09</span></td></tr><tr><td><span>盤果路</span></td><td><span>2.76</span></td><td><span>西側10</span></td></tr><tr><td><span>盤果路</span></td><td><span>3.04</span></td><td><span>西側11</span></td></tr></tbody></table></figure><h3 id='2-金沙鎮陽沙路沙青路至光華路二段路段）'><span>2. 金沙鎮陽沙路（沙青路至光華路二段路段）</span></h3><p><span>平均值3.14，標準差0.91</span></p><p><img src="img/20210702-02.jpg" referrerpolicy="no-referrer" alt="陽沙路道路平整度"></p><figure><table><thead><tr><th><span>X</span></th><th><span>Speed</span></th><th><span>wgs84x</span></th><th><span>wgs84y</span></th><th><span>xend</span></th><th><span>yend</span></th><th><span>AARI</span></th><th><span>Date</span></th><th><span>side</span></th></tr></thead><tbody><tr><td><span>1</span></td><td><span>31.94646</span></td><td><span>118.412</span></td><td><span>24.49411</span></td><td><span>118.4127</span></td><td><span>24.49457</span></td><td><span>4.120548</span></td><td><span>2021/7/2</span></td><td><span>東側01</span></td></tr><tr><td><span>2</span></td><td><span>41.68951</span></td><td><span>118.4127</span></td><td><span>24.49457</span></td><td><span>118.4136</span></td><td><span>24.49508</span></td><td><span>4.232913</span></td><td><span>2021/7/2</span></td><td><span>東側02</span></td></tr><tr><td><span>3</span></td><td><span>45.15517</span></td><td><span>118.4136</span></td><td><span>24.49508</span></td><td><span>118.4144</span></td><td><span>24.49565</span></td><td><span>3.349709</span></td><td><span>2021/7/2</span></td><td><span>東側03</span></td></tr><tr><td><span>4</span></td><td><span>46.48017</span></td><td><span>118.4144</span></td><td><span>24.49565</span></td><td><span>118.415</span></td><td><span>24.49633</span></td><td><span>4.635522</span></td><td><span>2021/7/2</span></td><td><span>東側04</span></td></tr><tr><td><span>5</span></td><td><span>44.13833</span></td><td><span>118.415</span></td><td><span>24.49633</span></td><td><span>118.4154</span></td><td><span>24.49719</span></td><td><span>1.508485</span></td><td><span>2021/7/2</span></td><td><span>東側05</span></td></tr><tr><td><span>6</span></td><td><span>46.10724</span></td><td><span>118.4154</span></td><td><span>24.49719</span></td><td><span>118.4157</span></td><td><span>24.49799</span></td><td><span>2.000696</span></td><td><span>2021/7/2</span></td><td><span>東側06</span></td></tr><tr><td><span>7</span></td><td><span>48.58816</span></td><td><span>118.4157</span></td><td><span>24.49799</span></td><td><span>118.4162</span></td><td><span>24.49876</span></td><td><span>2.736465</span></td><td><span>2021/7/2</span></td><td><span>東側07</span></td></tr><tr><td><span>8</span></td><td><span>50.10334</span></td><td><span>118.4162</span></td><td><span>24.49876</span></td><td><span>118.4167</span></td><td><span>24.49953</span></td><td><span>1.417569</span></td><td><span>2021/7/2</span></td><td><span>東側08</span></td></tr><tr><td><span>9</span></td><td><span>51.64028</span></td><td><span>118.4167</span></td><td><span>24.49953</span></td><td><span>118.4173</span></td><td><span>24.5003</span></td><td><span>1.667844</span></td><td><span>2021/7/2</span></td><td><span>東側09</span></td></tr><tr><td><span>10</span></td><td><span>52.47777</span></td><td><span>118.4173</span></td><td><span>24.5003</span></td><td><span>118.418</span></td><td><span>24.50097</span></td><td><span>3.993239</span></td><td><span>2021/7/2</span></td><td><span>東側10</span></td></tr><tr><td><span>11</span></td><td><span>51.73614</span></td><td><span>118.418</span></td><td><span>24.50097</span></td><td><span>118.4188</span></td><td><span>24.50151</span></td><td><span>3.765799</span></td><td><span>2021/7/2</span></td><td><span>東側11</span></td></tr><tr><td><span>12</span></td><td><span>51.23864</span></td><td><span>118.4188</span></td><td><span>24.50151</span></td><td><span>118.4195</span></td><td><span>24.50203</span></td><td><span>2.971915</span></td><td><span>2021/7/2</span></td><td><span>東側12</span></td></tr><tr><td><span>13</span></td><td><span>50.21816</span></td><td><span>118.4195</span></td><td><span>24.50203</span></td><td><span>118.4203</span></td><td><span>24.50256</span></td><td><span>3.614146</span></td><td><span>2021/7/2</span></td><td><span>東側13</span></td></tr><tr><td><span>14</span></td><td><span>51.17815</span></td><td><span>118.4203</span></td><td><span>24.50256</span></td><td><span>118.4212</span></td><td><span>24.50308</span></td><td><span>2.300504</span></td><td><span>2021/7/2</span></td><td><span>東側14</span></td></tr><tr><td><span>15</span></td><td><span>52.82657</span></td><td><span>118.4212</span></td><td><span>24.50308</span></td><td><span>118.422</span></td><td><span>24.50357</span></td><td><span>2.164244</span></td><td><span>2021/7/2</span></td><td><span>東側15</span></td></tr><tr><td><span>16</span></td><td><span>53.06661</span></td><td><span>118.422</span></td><td><span>24.50357</span></td><td><span>118.4228</span></td><td><span>24.50389</span></td><td><span>2.641904</span></td><td><span>2021/7/2</span></td><td><span>東側16</span></td></tr><tr><td><span>17</span></td><td><span>53.22416</span></td><td><span>118.4228</span></td><td><span>24.50389</span></td><td><span>118.4239</span></td><td><span>24.50417</span></td><td><span>3.071123</span></td><td><span>2021/7/2</span></td><td><span>東側17</span></td></tr><tr><td><span>18</span></td><td><span>55.20131</span></td><td><span>118.4239</span></td><td><span>24.50417</span></td><td><span>118.4248</span></td><td><span>24.50435</span></td><td><span>4.266993</span></td><td><span>2021/7/2</span></td><td><span>東側18</span></td></tr><tr><td><span>19</span></td><td><span>51.53763</span></td><td><span>118.4248</span></td><td><span>24.50435</span></td><td><span>118.4258</span></td><td><span>24.50442</span></td><td><span>4.65139</span></td><td><span>2021/7/2</span></td><td><span>東側19</span></td></tr><tr><td><span>20</span></td><td><span>47.47025</span></td><td><span>118.4258</span></td><td><span>24.50442</span></td><td><span>118.4267</span></td><td><span>24.50428</span></td><td><span>4.318966</span></td><td><span>2021/7/2</span></td><td><span>東側20</span></td></tr><tr><td><span>21</span></td><td><span>47.90337</span></td><td><span>118.4267</span></td><td><span>24.50428</span></td><td><span>118.4278</span></td><td><span>24.5042</span></td><td><span>2.798302</span></td><td><span>2021/7/2</span></td><td><span>東側21</span></td></tr><tr><td><span>22</span></td><td><span>48.84733</span></td><td><span>118.4278</span></td><td><span>24.5042</span></td><td><span>118.4287</span></td><td><span>24.50442</span></td><td><span>2.943251</span></td><td><span>2021/7/2</span></td><td><span>東側22</span></td></tr><tr><td><span>22</span></td><td><span>47.15621</span></td><td><span>118.4127</span></td><td><span>24.49459</span></td><td><span>118.4118</span></td><td><span>24.49404</span></td><td><span>3.102652</span></td><td><span>2021/7/2</span></td><td><span>西側01</span></td></tr><tr><td><span>21</span></td><td><span>44.51663</span></td><td><span>118.4135</span></td><td><span>24.49505</span></td><td><span>118.4127</span></td><td><span>24.49459</span></td><td><span>3.598292</span></td><td><span>2021/7/2</span></td><td><span>西側02</span></td></tr><tr><td><span>20</span></td><td><span>39.12699</span></td><td><span>118.4143</span></td><td><span>24.49559</span></td><td><span>118.4135</span></td><td><span>24.49505</span></td><td><span>2.650854</span></td><td><span>2021/7/2</span></td><td><span>西側03</span></td></tr><tr><td><span>19</span></td><td><span>46.51644</span></td><td><span>118.4149</span></td><td><span>24.49627</span></td><td><span>118.4143</span></td><td><span>24.49559</span></td><td><span>3.998069</span></td><td><span>2021/7/2</span></td><td><span>西側04</span></td></tr><tr><td><span>18</span></td><td><span>52.35163</span></td><td><span>118.4153</span></td><td><span>24.49712</span></td><td><span>118.4149</span></td><td><span>24.49627</span></td><td><span>3.193198</span></td><td><span>2021/7/2</span></td><td><span>西側05</span></td></tr><tr><td><span>17</span></td><td><span>53.2973</span></td><td><span>118.4157</span></td><td><span>24.49797</span></td><td><span>118.4153</span></td><td><span>24.49712</span></td><td><span>2.634459</span></td><td><span>2021/7/2</span></td><td><span>西側06</span></td></tr><tr><td><span>16</span></td><td><span>51.97252</span></td><td><span>118.4162</span></td><td><span>24.49878</span></td><td><span>118.4157</span></td><td><span>24.49797</span></td><td><span>2.224322</span></td><td><span>2021/7/2</span></td><td><span>西側07</span></td></tr><tr><td><span>15</span></td><td><span>49.25116</span></td><td><span>118.4167</span></td><td><span>24.49955</span></td><td><span>118.4162</span></td><td><span>24.49878</span></td><td><span>2.106543</span></td><td><span>2021/7/2</span></td><td><span>西側08</span></td></tr><tr><td><span>14</span></td><td><span>48.90507</span></td><td><span>118.4172</span></td><td><span>24.50027</span></td><td><span>118.4167</span></td><td><span>24.49955</span></td><td><span>2.455699</span></td><td><span>2021/7/2</span></td><td><span>西側09</span></td></tr><tr><td><span>13</span></td><td><span>52.1515</span></td><td><span>118.4178</span></td><td><span>24.50091</span></td><td><span>118.4172</span></td><td><span>24.50027</span></td><td><span>3.689172</span></td><td><span>2021/7/2</span></td><td><span>西側10</span></td></tr><tr><td><span>12</span></td><td><span>54.61859</span></td><td><span>118.4186</span></td><td><span>24.50145</span></td><td><span>118.4178</span></td><td><span>24.50091</span></td><td><span>3.084044</span></td><td><span>2021/7/2</span></td><td><span>西側11</span></td></tr><tr><td><span>11</span></td><td><span>55.66036</span></td><td><span>118.4195</span></td><td><span>24.50204</span></td><td><span>118.4186</span></td><td><span>24.50145</span></td><td><span>2.706092</span></td><td><span>2021/7/2</span></td><td><span>西側12</span></td></tr><tr><td><span>10</span></td><td><span>55.72958</span></td><td><span>118.4202</span></td><td><span>24.50254</span></td><td><span>118.4195</span></td><td><span>24.50204</span></td><td><span>4.640559</span></td><td><span>2021/7/2</span></td><td><span>西側13</span></td></tr><tr><td><span>9</span></td><td><span>53.80032</span></td><td><span>118.4211</span></td><td><span>24.50309</span></td><td><span>118.4202</span></td><td><span>24.50254</span></td><td><span>2.231728</span></td><td><span>2021/7/2</span></td><td><span>西側14</span></td></tr><tr><td><span>8</span></td><td><span>49.69766</span></td><td><span>118.4219</span></td><td><span>24.50354</span></td><td><span>118.4211</span></td><td><span>24.50309</span></td><td><span>1.856646</span></td><td><span>2021/7/2</span></td><td><span>西側15</span></td></tr><tr><td><span>7</span></td><td><span>47.25257</span></td><td><span>118.4228</span></td><td><span>24.5039</span></td><td><span>118.4219</span></td><td><span>24.50354</span></td><td><span>2.533582</span></td><td><span>2021/7/2</span></td><td><span>西側16</span></td></tr><tr><td><span>6</span></td><td><span>47.33024</span></td><td><span>118.4238</span></td><td><span>24.50417</span></td><td><span>118.4228</span></td><td><span>24.5039</span></td><td><span>2.727986</span></td><td><span>2021/7/2</span></td><td><span>西側17</span></td></tr><tr><td><span>5</span></td><td><span>47.18563</span></td><td><span>118.4247</span></td><td><span>24.50435</span></td><td><span>118.4238</span></td><td><span>24.50417</span></td><td><span>3.765919</span></td><td><span>2021/7/2</span></td><td><span>西側18</span></td></tr><tr><td><span>4</span></td><td><span>46.95235</span></td><td><span>118.4257</span></td><td><span>24.50443</span></td><td><span>118.4247</span></td><td><span>24.50435</span></td><td><span>4.079447</span></td><td><span>2021/7/2</span></td><td><span>西側19</span></td></tr><tr><td><span>3</span></td><td><span>46.54205</span></td><td><span>118.4266</span></td><td><span>24.5043</span></td><td><span>118.4257</span></td><td><span>24.50443</span></td><td><span>4.695035</span></td><td><span>2021/7/2</span></td><td><span>西側20</span></td></tr><tr><td><span>2</span></td><td><span>41.05369</span></td><td><span>118.4276</span></td><td><span>24.5042</span></td><td><span>118.4266</span></td><td><span>24.5043</span></td><td><span>3.681393</span></td><td><span>2021/7/2</span></td><td><span>西側21</span></td></tr><tr><td><span>1</span></td><td><span>34.9275</span></td><td><span>118.4286</span></td><td><span>24.50444</span></td><td><span>118.4276</span></td><td><span>24.5042</span></td><td><span>3.745554</span></td><td><span>2021/7/2</span></td><td><span>西側22</span></td></tr></tbody></table></figure><h3 id='3-光前路'><span>3. 光前路</span></h3><p><span>平均值5.30，標準差1.90</span></p><p><img src="img/20210702-03.jpg" referrerpolicy="no-referrer" alt="光前路道路平整度"></p><figure><table><thead><tr><th><span>X</span></th><th><span>wgs84x</span></th><th><span>wgs84y</span></th><th><span>xend</span></th><th><span>yend</span></th><th><span>AARI</span></th><th><span>Light</span></th><th><span>Date</span></th><th><span>road</span></th></tr></thead><tbody><tr><td><span>9</span></td><td><span>118.3148</span></td><td><span>24.43346</span></td><td><span>118.3142</span></td><td><span>24.43409</span></td><td><span>6.607911</span></td><td><span>Terrible</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側1</span></td></tr><tr><td><span>10</span></td><td><span>118.3142</span></td><td><span>24.43409</span></td><td><span>118.3137</span></td><td><span>24.43487</span></td><td><span>3.755357</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側2</span></td></tr><tr><td><span>11</span></td><td><span>118.3137</span></td><td><span>24.43487</span></td><td><span>118.3132</span></td><td><span>24.43562</span></td><td><span>3.658546</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側3</span></td></tr><tr><td><span>12</span></td><td><span>118.3132</span></td><td><span>24.43562</span></td><td><span>118.3126</span></td><td><span>24.4364</span></td><td><span>3.99572</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側4</span></td></tr><tr><td><span>13</span></td><td><span>118.3126</span></td><td><span>24.4364</span></td><td><span>118.3121</span></td><td><span>24.43716</span></td><td><span>3.742278</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側5</span></td></tr><tr><td><span>14</span></td><td><span>118.3121</span></td><td><span>24.43716</span></td><td><span>118.3119</span></td><td><span>24.438</span></td><td><span>7.118513</span></td><td><span>Terrible</span></td><td><span>2021/7/2</span></td><td><span>光前路_東側6</span></td></tr><tr><td><span>102</span></td><td><span>118.3119</span></td><td><span>24.43834</span></td><td><span>118.3124</span></td><td><span>24.43664</span></td><td><span>3.224053</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_西側5</span></td></tr><tr><td><span>104</span></td><td><span>118.3124</span></td><td><span>24.43664</span></td><td><span>118.3129</span></td><td><span>24.43595</span></td><td><span>4.612903</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_西側4</span></td></tr><tr><td><span>105</span></td><td><span>118.3129</span></td><td><span>24.43595</span></td><td><span>118.3135</span></td><td><span>24.43513</span></td><td><span>8.470417</span></td><td><span>Terrible</span></td><td><span>2021/7/2</span></td><td><span>光前路_西側3</span></td></tr><tr><td><span>106</span></td><td><span>118.3135</span></td><td><span>24.43513</span></td><td><span>118.3139</span></td><td><span>24.4344</span></td><td><span>5.126602</span></td><td><span>Bad</span></td><td><span>2021/7/2</span></td><td><span>光前路_西側2</span></td></tr><tr><td><span>107</span></td><td><span>118.3139</span></td><td><span>24.4344</span></td><td><span>118.3145</span></td><td><span>24.43361</span></td><td><span>8.007991</span></td><td><span>Terrible</span></td><td><span>2021/7/2</span></td><td><span>光前路_西側1</span></td></tr></tbody></table></figure><h3 id='4-慈湖路一至三段'><span>4. 慈湖路一至三段</span></h3><p><span>平均值3.45，標準差1.29</span></p><p><img src="img/20210702-04.jpg" referrerpolicy="no-referrer" alt="慈湖路一至三段道路平整度"></p><figure><table><thead><tr><th><span>X</span></th><th><span>wgs84x</span></th><th><span>wgs84y</span></th><th><span>xend</span></th><th><span>yend</span></th><th><span>AARI</span></th><th><span>Date</span></th></tr></thead><tbody><tr><td><span>15</span></td><td><span>118.3119</span></td><td><span>24.438</span></td><td><span>118.3119</span></td><td><span>24.43894</span></td><td><span>4.71567</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>16</span></td><td><span>118.3119</span></td><td><span>24.43894</span></td><td><span>118.3119</span></td><td><span>24.4398</span></td><td><span>3.882159</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>17</span></td><td><span>118.3119</span></td><td><span>24.4398</span></td><td><span>118.3118</span></td><td><span>24.44075</span></td><td><span>3.961858</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>18</span></td><td><span>118.3118</span></td><td><span>24.44075</span></td><td><span>118.3118</span></td><td><span>24.44164</span></td><td><span>3.874535</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>19</span></td><td><span>118.3118</span></td><td><span>24.44164</span></td><td><span>118.3117</span></td><td><span>24.44255</span></td><td><span>4.916821</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>20</span></td><td><span>118.3117</span></td><td><span>24.44255</span></td><td><span>118.3117</span></td><td><span>24.44343</span></td><td><span>3.607221</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>21</span></td><td><span>118.3117</span></td><td><span>24.44343</span></td><td><span>118.3116</span></td><td><span>24.44434</span></td><td><span>3.628387</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>22</span></td><td><span>118.3116</span></td><td><span>24.44434</span></td><td><span>118.3116</span></td><td><span>24.44527</span></td><td><span>3.778481</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>23</span></td><td><span>118.3116</span></td><td><span>24.44527</span></td><td><span>118.3116</span></td><td><span>24.44608</span></td><td><span>6.264417</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>24</span></td><td><span>118.3116</span></td><td><span>24.44608</span></td><td><span>118.3113</span></td><td><span>24.447</span></td><td><span>4.165452</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>25</span></td><td><span>118.3113</span></td><td><span>24.447</span></td><td><span>118.3107</span></td><td><span>24.44764</span></td><td><span>2.583441</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>26</span></td><td><span>118.3107</span></td><td><span>24.44764</span></td><td><span>118.3101</span></td><td><span>24.44845</span></td><td><span>3.851125</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>27</span></td><td><span>118.3101</span></td><td><span>24.44845</span></td><td><span>118.3096</span></td><td><span>24.44916</span></td><td><span>3.900066</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>28</span></td><td><span>118.3096</span></td><td><span>24.44916</span></td><td><span>118.309</span></td><td><span>24.44987</span></td><td><span>4.990869</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>29</span></td><td><span>118.309</span></td><td><span>24.44987</span></td><td><span>118.3084</span></td><td><span>24.45067</span></td><td><span>5.063258</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>30</span></td><td><span>118.3084</span></td><td><span>24.45067</span></td><td><span>118.3081</span></td><td><span>24.45153</span></td><td><span>7.519535</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>31</span></td><td><span>118.3081</span></td><td><span>24.45153</span></td><td><span>118.3079</span></td><td><span>24.45235</span></td><td><span>2.873209</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>32</span></td><td><span>118.3079</span></td><td><span>24.45235</span></td><td><span>118.3073</span></td><td><span>24.45302</span></td><td><span>2.661584</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>33</span></td><td><span>118.3073</span></td><td><span>24.45302</span></td><td><span>118.3067</span></td><td><span>24.45376</span></td><td><span>3.190511</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>34</span></td><td><span>118.3067</span></td><td><span>24.45376</span></td><td><span>118.3061</span></td><td><span>24.45446</span></td><td><span>2.867497</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>35</span></td><td><span>118.3061</span></td><td><span>24.45446</span></td><td><span>118.3054</span></td><td><span>24.45508</span></td><td><span>4.97168</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>36</span></td><td><span>118.3054</span></td><td><span>24.45508</span></td><td><span>118.3046</span></td><td><span>24.45567</span></td><td><span>4.593866</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>37</span></td><td><span>118.3046</span></td><td><span>24.45567</span></td><td><span>118.3043</span></td><td><span>24.45645</span></td><td><span>4.199004</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>38</span></td><td><span>118.3043</span></td><td><span>24.45645</span></td><td><span>118.3044</span></td><td><span>24.45734</span></td><td><span>5.186688</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>39</span></td><td><span>118.3044</span></td><td><span>24.45734</span></td><td><span>118.3043</span></td><td><span>24.45831</span></td><td><span>3.476012</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>40</span></td><td><span>118.3043</span></td><td><span>24.45831</span></td><td><span>118.3042</span></td><td><span>24.45922</span></td><td><span>2.796816</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>41</span></td><td><span>118.3042</span></td><td><span>24.45922</span></td><td><span>118.3042</span></td><td><span>24.46003</span></td><td><span>2.597144</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>42</span></td><td><span>118.3042</span></td><td><span>24.46003</span></td><td><span>118.3041</span></td><td><span>24.46102</span></td><td><span>4.756808</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>43</span></td><td><span>118.3041</span></td><td><span>24.46102</span></td><td><span>118.3035</span></td><td><span>24.46166</span></td><td><span>4.549987</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>44</span></td><td><span>118.3035</span></td><td><span>24.46166</span></td><td><span>118.3027</span></td><td><span>24.46214</span></td><td><span>2.632841</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>45</span></td><td><span>118.3027</span></td><td><span>24.46214</span></td><td><span>118.3018</span></td><td><span>24.46268</span></td><td><span>2.651393</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>46</span></td><td><span>118.3018</span></td><td><span>24.46268</span></td><td><span>118.3011</span></td><td><span>24.46313</span></td><td><span>2.971972</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>47</span></td><td><span>118.3011</span></td><td><span>24.46313</span></td><td><span>118.3003</span></td><td><span>24.46363</span></td><td><span>2.315568</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>48</span></td><td><span>118.3003</span></td><td><span>24.46363</span></td><td><span>118.2994</span></td><td><span>24.46416</span></td><td><span>2.630607</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>49</span></td><td><span>118.2994</span></td><td><span>24.46416</span></td><td><span>118.2986</span></td><td><span>24.46468</span></td><td><span>1.948689</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>50</span></td><td><span>118.2986</span></td><td><span>24.46468</span></td><td><span>118.298</span></td><td><span>24.46535</span></td><td><span>2.663072</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>51</span></td><td><span>118.298</span></td><td><span>24.46535</span></td><td><span>118.2974</span></td><td><span>24.4661</span></td><td><span>1.922099</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>52</span></td><td><span>118.2974</span></td><td><span>24.4661</span></td><td><span>118.2968</span></td><td><span>24.46686</span></td><td><span>2.305788</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>53</span></td><td><span>118.2968</span></td><td><span>24.46686</span></td><td><span>118.2962</span></td><td><span>24.46756</span></td><td><span>2.163329</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>54</span></td><td><span>118.2962</span></td><td><span>24.46756</span></td><td><span>118.2957</span></td><td><span>24.46827</span></td><td><span>2.248848</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>55</span></td><td><span>118.2957</span></td><td><span>24.46827</span></td><td><span>118.2951</span></td><td><span>24.46902</span></td><td><span>1.299935</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>56</span></td><td><span>118.2951</span></td><td><span>24.46902</span></td><td><span>118.2945</span></td><td><span>24.46973</span></td><td><span>1.74123</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>57</span></td><td><span>118.2945</span></td><td><span>24.46973</span></td><td><span>118.2939</span></td><td><span>24.4705</span></td><td><span>1.944689</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>59</span></td><td><span>118.2936</span></td><td><span>24.47083</span></td><td><span>118.2942</span></td><td><span>24.47013</span></td><td><span>2.254178</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>60</span></td><td><span>118.2942</span></td><td><span>24.47013</span></td><td><span>118.2948</span></td><td><span>24.46939</span></td><td><span>2.439629</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>61</span></td><td><span>118.2948</span></td><td><span>24.46939</span></td><td><span>118.2953</span></td><td><span>24.46871</span></td><td><span>2.111658</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>62</span></td><td><span>118.2953</span></td><td><span>24.46871</span></td><td><span>118.296</span></td><td><span>24.4679</span></td><td><span>2.052636</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>63</span></td><td><span>118.296</span></td><td><span>24.4679</span></td><td><span>118.2965</span></td><td><span>24.46721</span></td><td><span>2.20072</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>64</span></td><td><span>118.2965</span></td><td><span>24.46721</span></td><td><span>118.2971</span></td><td><span>24.46649</span></td><td><span>2.201223</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>65</span></td><td><span>118.2971</span></td><td><span>24.46649</span></td><td><span>118.2977</span></td><td><span>24.46577</span></td><td><span>2.81538</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>66</span></td><td><span>118.2977</span></td><td><span>24.46577</span></td><td><span>118.2983</span></td><td><span>24.46498</span></td><td><span>2.998799</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>67</span></td><td><span>118.2983</span></td><td><span>24.46498</span></td><td><span>118.299</span></td><td><span>24.46443</span></td><td><span>4.086288</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>68</span></td><td><span>118.299</span></td><td><span>24.46443</span></td><td><span>118.2998</span></td><td><span>24.4639</span></td><td><span>3.189035</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>69</span></td><td><span>118.2998</span></td><td><span>24.4639</span></td><td><span>118.3006</span></td><td><span>24.4634</span></td><td><span>2.298189</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>70</span></td><td><span>118.3006</span></td><td><span>24.4634</span></td><td><span>118.3015</span></td><td><span>24.46289</span></td><td><span>2.218257</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>71</span></td><td><span>118.3015</span></td><td><span>24.46289</span></td><td><span>118.3023</span></td><td><span>24.46236</span></td><td><span>2.279843</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>72</span></td><td><span>118.3023</span></td><td><span>24.46236</span></td><td><span>118.3031</span></td><td><span>24.46186</span></td><td><span>2.178141</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>73</span></td><td><span>118.3031</span></td><td><span>24.46186</span></td><td><span>118.3038</span></td><td><span>24.46135</span></td><td><span>4.252738</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>74</span></td><td><span>118.3038</span></td><td><span>24.46135</span></td><td><span>118.3041</span></td><td><span>24.46047</span></td><td><span>3.581408</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>75</span></td><td><span>118.3041</span></td><td><span>24.46047</span></td><td><span>118.3042</span></td><td><span>24.45957</span></td><td><span>3.317397</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>76</span></td><td><span>118.3042</span></td><td><span>24.45957</span></td><td><span>118.3043</span></td><td><span>24.45869</span></td><td><span>2.159433</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>77</span></td><td><span>118.3043</span></td><td><span>24.45869</span></td><td><span>118.3043</span></td><td><span>24.45772</span></td><td><span>1.878133</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>78</span></td><td><span>118.3043</span></td><td><span>24.45772</span></td><td><span>118.3044</span></td><td><span>24.45689</span></td><td><span>2.977125</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>79</span></td><td><span>118.3044</span></td><td><span>24.45689</span></td><td><span>118.3044</span></td><td><span>24.45597</span></td><td><span>5.1379</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>80</span></td><td><span>118.3044</span></td><td><span>24.45597</span></td><td><span>118.3049</span></td><td><span>24.4553</span></td><td><span>2.87891</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>81</span></td><td><span>118.3049</span></td><td><span>24.4553</span></td><td><span>118.3058</span></td><td><span>24.45477</span></td><td><span>3.874665</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>82</span></td><td><span>118.3058</span></td><td><span>24.45477</span></td><td><span>118.3064</span></td><td><span>24.45404</span></td><td><span>6.51705</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>83</span></td><td><span>118.3064</span></td><td><span>24.45404</span></td><td><span>118.307</span></td><td><span>24.45336</span></td><td><span>3.436002</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>84</span></td><td><span>118.307</span></td><td><span>24.45336</span></td><td><span>118.3076</span></td><td><span>24.45268</span></td><td><span>1.893409</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>85</span></td><td><span>118.3076</span></td><td><span>24.45268</span></td><td><span>118.3081</span></td><td><span>24.4519</span></td><td><span>2.458671</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>86</span></td><td><span>118.3081</span></td><td><span>24.4519</span></td><td><span>118.3082</span></td><td><span>24.45102</span></td><td><span>3.705266</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>87</span></td><td><span>118.3082</span></td><td><span>24.45102</span></td><td><span>118.3087</span></td><td><span>24.45019</span></td><td><span>2.690199</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>88</span></td><td><span>118.3087</span></td><td><span>24.45019</span></td><td><span>118.3093</span></td><td><span>24.44945</span></td><td><span>3.799556</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>89</span></td><td><span>118.3093</span></td><td><span>24.44945</span></td><td><span>118.3099</span></td><td><span>24.44868</span></td><td><span>3.746292</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>90</span></td><td><span>118.3099</span></td><td><span>24.44868</span></td><td><span>118.3104</span></td><td><span>24.448</span></td><td><span>3.360436</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>91</span></td><td><span>118.3104</span></td><td><span>24.448</span></td><td><span>118.311</span></td><td><span>24.44723</span></td><td><span>3.073375</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>92</span></td><td><span>118.311</span></td><td><span>24.44723</span></td><td><span>118.3115</span></td><td><span>24.44652</span></td><td><span>7.264052</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>93</span></td><td><span>118.3115</span></td><td><span>24.44652</span></td><td><span>118.3116</span></td><td><span>24.44558</span></td><td><span>5.119118</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>94</span></td><td><span>118.3116</span></td><td><span>24.44558</span></td><td><span>118.3116</span></td><td><span>24.4447</span></td><td><span>4.612199</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>95</span></td><td><span>118.3116</span></td><td><span>24.4447</span></td><td><span>118.3116</span></td><td><span>24.44382</span></td><td><span>5.113178</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>96</span></td><td><span>118.3116</span></td><td><span>24.44382</span></td><td><span>118.3117</span></td><td><span>24.44292</span></td><td><span>2.477592</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>97</span></td><td><span>118.3117</span></td><td><span>24.44292</span></td><td><span>118.3117</span></td><td><span>24.44197</span></td><td><span>3.87638</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>98</span></td><td><span>118.3117</span></td><td><span>24.44197</span></td><td><span>118.3118</span></td><td><span>24.44105</span></td><td><span>3.049006</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>99</span></td><td><span>118.3118</span></td><td><span>24.44105</span></td><td><span>118.3118</span></td><td><span>24.44021</span></td><td><span>3.795936</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>100</span></td><td><span>118.3118</span></td><td><span>24.44021</span></td><td><span>118.3119</span></td><td><span>24.43929</span></td><td><span>2.933974</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>101</span></td><td><span>118.3119</span></td><td><span>24.43929</span></td><td><span>118.3119</span></td><td><span>24.43834</span></td><td><span>4.139804</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>102</span></td><td><span>118.3119</span></td><td><span>24.43834</span></td><td><span>118.3124</span></td><td><span>24.43664</span></td><td><span>3.224053</span></td><td><span>2021/7/2</span></td></tr><tr><td><span>14</span></td><td><span>118.3121</span></td><td><span>24.43716</span></td><td><span>118.3119</span></td><td><span>24.438</span></td><td><span>7.118513</span></td><td><span>2021/7/2</span></td></tr></tbody></table></figure></div></div>
+</body>
+</html>
